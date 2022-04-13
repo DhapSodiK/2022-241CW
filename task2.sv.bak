@@ -14,8 +14,8 @@ always_comb begin
 	feedback[0] = (Q[11] ^ Q[0]);	//bit 12 ^ 0 -> to bit 11
 end
 
-	always_ff @(posedge CLK, negedge n_RESET)	begin	//trigger on a flip flop
-		if(n_RESET == 1'b0)	begin			//starting reference point
+	always_ff @(posedge CLK, negedge n_RESET)	begin
+		if(n_RESET == 1'b0)	begin
 			Q<=N;
 	
 	end

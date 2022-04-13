@@ -1,0 +1,11 @@
+// Task 3 - 2022
+module task3;
+
+//Write solution here
+
+//Read DATAIN port
+
+//Count Leads left to right
+
+//if 0 then terminate count and show output
+endmodule

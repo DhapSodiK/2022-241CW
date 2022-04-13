@@ -2,9 +2,9 @@ module task2_tb;
 
 // Add internal signals here
 
-logic CLK, n_RESET; 	//inputs
+logic CLK, n_RESET;
 
-logic [15:0] Q;		//outputs
+logic [15:0] Q;
 
 parameter N = 16'b1010110011100001;
 int counter = 0;
@@ -12,32 +12,32 @@ int counter = 0;
 task2 o1 (Q,CLK, n_RESET);
 
 task passed0;
-	$display("initial passed");	//initial pass
+	$display("initial passed");
 endtask : passed0
 
 
 task passed1;
-	$display("value 1 passed");	//passes when prompt 1 is correct
+	$display("value 1 passed");
 endtask : passed1
 
 
 task passed2;
-	$display("value 2 passed");	//passes when prompt 2 is correct
+	$display("value 2 passed");
 endtask : passed2
 
 
-task passed3;	
-	$display("value 3 passed");	//passes when prompt 3 is correct
+task passed3;
+	$display("value 3 passed");
 endtask : passed3
 
 
 task passed4;
-	$display("full loop passed");	//passes when value 65535 is the same as initial
+	$display("full loop passed");
 endtask : passed4
 
 
 task failed;
-	$display("failed");		//fails when outputs are different
+	$display("failed");
 endtask : failed
 
 initial begin
@@ -49,7 +49,7 @@ initial begin
 	n_RESET = 1;
 	
 	CLK = 0;
-	repeat(131070)	//2 clock cycles as 2ps period
+	repeat(131070)
 	#1ps
 	CLK = ~CLK;
 	#1ps
@@ -57,7 +57,7 @@ initial begin
 
 end
 
-	always@(posedge CLK) begin	//shifts character on clock edge
+	always@(posedge CLK) begin
 		if (counter==0)
 		assert(Q==N) passed0();
 			else failed();
